@@ -1,1 +1,1 @@
-# -argmining20-rhetorical-devices
+# argmining20-rhetorical-devices
