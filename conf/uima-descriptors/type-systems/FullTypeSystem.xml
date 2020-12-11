@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<typeSystemDescription xmlns="http://uima.apache.org/resourceSpecifier">
+<name>FullTypeSystem</name>
+<description>The type system that unifies all types from all other type systems.
+
+Not recommended to be used always, because this may force other components to know about all types. However, the type system should be used in situations where it is necessary that a component works irrespective of the currently used type system.
+
+Please update this type system whenever a new type system is created by importing the new type system. Notice that a type system does not need to be imported if it is already imported by another imported type system.</description>
+<version>1.0</version>
+<vendor>Webis</vendor>
+<imports>
+    <import location="ArguAnaTypeSystem.xml"/>
+  <import location="InfexBATypeSystem.xml"/>
+  </imports>
+  </typeSystemDescription>

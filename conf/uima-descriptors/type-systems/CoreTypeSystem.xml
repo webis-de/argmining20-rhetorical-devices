@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<typeSystemDescription xmlns="http://uima.apache.org/resourceSpecifier">
+	<name>AbstractTypeSystem</name>
+	<description>The core type system with all fundamental concrete annotation types that shall be used where needed in any UIMA project. All other concrete type systems should import this type system.
+
+The annotation types defined here are of interest in many applications. By defining them once and importing them in other concrete type system, it is easier to ensure that the types are always used in the same way.</description>
+	<version>1.0</version>
+	<vendor>Webis</vendor>
+	<imports>
+    <import location="AbstractTypeSystem.xml"/>
+  </imports>
+  <types>
+
+		<typeDescription>
+      <name>de.aitools.ie.uima.type.core.Token</name>
+      <description>A token, i.e., a word, number, or the like.</description>
+      <supertypeName>de.aitools.ie.uima.type.supertype.GrammaticalUnit</supertypeName>
+      <features>
+        <featureDescription>
+          <name>lemma</name>
+          <description>The lemma of a token, i.e., its lexicon form.</description>
+          <rangeTypeName>uima.cas.String</rangeTypeName>
+        </featureDescription>
+        <featureDescription>
+          <name>stem</name>
+          <description>The stem of a token.</description>
+          <rangeTypeName>uima.cas.String</rangeTypeName>
+        </featureDescription>
+        <featureDescription>
+          <name>pos</name>
+          <description>The part-of-speech tag of a token.</description>
+          <rangeTypeName>uima.cas.String</rangeTypeName>
+        </featureDescription>
+        <featureDescription>
+          <name>chunk</name>
+          <description>The chunk tag of a token.</description>
+          <rangeTypeName>uima.cas.String</rangeTypeName>
+        </featureDescription>
+        <featureDescription>
+          <name>morph</name>
+          <description>The morphological tag of a token.</description>
+          <rangeTypeName>uima.cas.String</rangeTypeName>
+        </featureDescription>
+        <featureDescription>
+          <name>parent</name>
+          <description>The parent token of the token in the dependency graph of the associated sentence.</description>
+          <rangeTypeName>de.aitools.ie.uima.type.core.Token</rangeTypeName>
+        </featureDescription>
+        <featureDescription>
+          <name>depLabel</name>
+          <description>The dependency label of the token in the dependency graph of the associated sentence.</description>
+          <rangeTypeName>uima.cas.String</rangeTypeName>
+        </featureDescription>
+      </features>
+    </typeDescription>
+    <typeDescription>
+      <name>de.aitools.ie.uima.type.core.Sentence</name>
+      <description>A sentence.</description>
+      <supertypeName>de.aitools.ie.uima.type.supertype.GrammaticalUnit</supertypeName>
+    </typeDescription>
+    <typeDescription>
+      <name>de.aitools.ie.uima.type.core.Paragraph</name>
+      <description>A paragraph.</description>
+      <supertypeName>de.aitools.ie.uima.type.supertype.GrammaticalUnit</supertypeName>
+    </typeDescription>
+    <typeDescription>
+      <name>de.aitools.ie.uima.type.core.Person</name>
+      <description>A person name.</description>
+      <supertypeName>de.aitools.ie.uima.type.supertype.NamedEntity</supertypeName>
+    </typeDescription>
+    <typeDescription>
+      <name>de.aitools.ie.uima.type.core.Misc</name>
+      <description>A misc entity (as proposed in the CoNLL-2003 shared task.</description>
+      <supertypeName>de.aitools.ie.uima.type.supertype.NamedEntity</supertypeName>
+    </typeDescription>
+  <typeDescription>
+      <name>de.aitools.ie.uima.type.core.Location</name>
+      <description>A location name.</description>
+      <supertypeName>de.aitools.ie.uima.type.supertype.NamedEntity</supertypeName>
+    </typeDescription>
+  <typeDescription>
+      <name>de.aitools.ie.uima.type.core.Organization</name>
+      <description>An organization name.</description>
+      <supertypeName>de.aitools.ie.uima.type.supertype.NamedEntity</supertypeName>
+    </typeDescription>
+    <typeDescription>
+      <name>de.aitools.ie.uima.type.core.Date</name>
+      <description>A date.</description>
+      <supertypeName>de.aitools.ie.uima.type.supertype.NumericExpression</supertypeName>
+      <features>
+        <featureDescription>
+          <name>normalized</name>
+          <description>The normalized form of a date. Should be encoded as YYYY-MM-DD.</description>
+          <rangeTypeName>uima.cas.String</rangeTypeName>
+        </featureDescription>
+      </features>
+    </typeDescription>
+    <typeDescription>
+      <name>de.aitools.ie.uima.type.core.Language</name>
+      <description>The language of a text.</description>
+      <supertypeName>de.aitools.ie.uima.type.supertype.Metadata</supertypeName>
+    </typeDescription>
+    <typeDescription>
+      <name>de.aitools.ie.uima.type.core.SourceDocumentInformation</name>
+      <description>Stores detailed information about the original source document from which the current CAS was initialized. All information (like size) refers to the source document and not to the document in the CAS which may be converted and filtered by a CAS Initializer. For example this information will be written to the Semantic Search index so that the original document contents can be retrieved by queries.
+
+(NOTICE: This annotation type is copied from the Apache UIMA examples. Only the name space has been changed.)</description>
+      <supertypeName>uima.tcas.Annotation</supertypeName>
+      <features>
+        <featureDescription>
+          <name>uri</name>
+          <description>URI of document. (For example, file:///MyDirectory/myFile.txt for a simple file or http://incubator.apache.org/uima/index.html for content from a web source.)</description>
+          <rangeTypeName>uima.cas.String</rangeTypeName>
+        </featureDescription>
+        <featureDescription>
+          <name>offsetInSource</name>
+          <description>Byte offset of the start of document content within original source file or other input source. Only used if the CAS document was retrieved from an source where one physical source file contained several conceptual documents. Zero otherwise.</description>
+          <rangeTypeName>uima.cas.Integer</rangeTypeName>
+        </featureDescription>
+        <featureDescription>
+          <name>documentSize</name>
+          <description>Size of original document in bytes before processing by CAS Initializer. Either absolute file size of size within file or other source.</description>
+          <rangeTypeName>uima.cas.Integer</rangeTypeName>
+        </featureDescription>
+        <featureDescription>
+          <name>lastSegment</name>
+          <description>For a CAS that represents a segment of a larger source document, this flag indicates whether this CAS is the final segment of the source document.  This is useful for downstream components that want to take some action after having seen all of the segments of a particular source document.</description>
+          <rangeTypeName>uima.cas.Boolean</rangeTypeName>
+        </featureDescription>
+      </features>
+    </typeDescription>
+  <typeDescription>
+      <name>de.aitools.ie.uima.type.core.Syllable</name>
+      <description>A syllable of a word or similar.</description>
+      <supertypeName>de.aitools.ie.uima.type.supertype.Unit</supertypeName>
+    </typeDescription>
+  <typeDescription>
+      <name>de.aitools.ie.uima.type.core.Readability</name>
+      <description>The classification of the readability of a text. Different readability scores can be set as features of a respective annotation.</description>
+      <supertypeName>de.aitools.ie.uima.type.supertype.Classification</supertypeName>
+    <features>
+    
+        <featureDescription>
+          <name>automatedReadabilityIndex</name>
+          <description>The Automated Readability Index defined as
+4.71*characters/words + 0.5*words/sentences - 21.43.</description>
+          <rangeTypeName>uima.cas.Double</rangeTypeName>
+        </featureDescription>
+        
+        <featureDescription>
+          <name>colemanLiauIndex</name>
+          <description>The Coleman Liau Index defined as
+5.89*characters/words - 0.3*sentences/(100*words) - 15.8.</description>
+          <rangeTypeName>uima.cas.Double</rangeTypeName>
+        </featureDescription>
+        
+        <featureDescription>
+          <name>fleschKincaidGradeLevel</name>
+          <description>The Flesh Kincaid Grade level defined as: 
+11.8*syllables/words + 0.39*words/sentences - 15.59</description>
+          <rangeTypeName>uima.cas.Double</rangeTypeName>
+        </featureDescription>
+        
+        <featureDescription>
+          <name>fleschKincaidReadingEaseScore</name>
+          <description>The Flesh Kincaid Reading-Ease Score defined as
+206.835 - 84.6*syllables/words - 1.015*words/sentences</description>
+          <rangeTypeName>uima.cas.Double</rangeTypeName>
+        </featureDescription>
+        
+        <featureDescription>
+          <name>gunningFogIndex</name>
+          <description>The Gunning Fog Index defined as
+0.4 * (words/sentences + 100*(words-with-3-or-more-syllables/words))</description>
+          <rangeTypeName>uima.cas.Double</rangeTypeName>
+        </featureDescription>
+        
+        <featureDescription>
+          <name>lix</name>
+          <description>The LIX is defined as
+words/sentences + 100*(words-with-6-or-more-characters/words)</description>
+          <rangeTypeName>uima.cas.Double</rangeTypeName>
+        </featureDescription>
+        
+        <featureDescription>
+          <name>mcAlpineEFlawScore</name>
+          <description>McAlpine EFLAW Score defined as
+(words+words-with-at-most-3-characters)/sentences</description>
+          <rangeTypeName>uima.cas.Double</rangeTypeName>
+        </featureDescription>
+        
+        <featureDescription>
+          <name>rix</name>
+          <description>The RIX is defined as
+words-with-more-than-6-characters/sentences</description>
+          <rangeTypeName>uima.cas.Double</rangeTypeName>
+        </featureDescription>
+        
+        <featureDescription>
+          <name>smogGrade</name>
+          <description>The SMOG Grade defined as
+sqrt((words-with-3-or-more-syllables/sentences) * 30) + 3</description>
+          <rangeTypeName>uima.cas.Double</rangeTypeName>
+        </featureDescription>
+        
+        <featureDescription>
+          <name>strainIndex</name>
+          <description>The Strain Index defined as
+syllables-in-first-3-sentences/10</description>
+          <rangeTypeName>uima.cas.Double</rangeTypeName>
+        </featureDescription>
+        
+      </features>
+    </typeDescription>
+  <typeDescription>
+      <name>de.aitools.ie.uima.type.core.Constituent</name>
+      <description>A sequence of tokens as output by a constituency parser.</description>
+      <supertypeName>de.aitools.ie.uima.type.supertype.GrammaticalUnit</supertypeName>
+      <features>
+        <featureDescription>
+          <name>label</name>
+          <description>The label of this constituent as provided by the constituency parser.</description>
+          <rangeTypeName>uima.cas.String</rangeTypeName>
+        </featureDescription>
+        <featureDescription>
+          <name>parent</name>
+          <description>The parent of this constituent in the tree or null if this is the root.</description>
+          <rangeTypeName>de.aitools.ie.uima.type.core.Constituent</rangeTypeName>
+        </featureDescription>
+        <featureDescription>
+          <name>treeDepth</name>
+          <description>The tree depth is defined as the length of the longest path from this node to a leaf node. Leaf nodes have depth zero.</description>
+          <rangeTypeName>uima.cas.Integer</rangeTypeName>
+        </featureDescription>
+      </features>
+    </typeDescription>
+  </types>
+</typeSystemDescription>

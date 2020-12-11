@@ -1,0 +1,12 @@
+.com
+.org
+.net
+.edu
+.gov
+.de
+.uk
+.co
+.ac
+.eu
+.htm
+.html

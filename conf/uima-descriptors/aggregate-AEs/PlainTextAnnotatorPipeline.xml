@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<analysisEngineDescription xmlns="http://uima.apache.org/resourceSpecifier">
+  <frameworkImplementation>org.apache.uima.java</frameworkImplementation>
+  <primitive>false</primitive>  
+  <delegateAnalysisEngineSpecifiers>
+    <delegateAnalysisEngine key="SyntacticRhetoricSimpleAnnotator">
+      <import location="../primitive-AEs/SyntacticRhetoricSimpleAnnotator.xml"/>
+    </delegateAnalysisEngine>
+    <delegateAnalysisEngine key="StanfordParser">
+      <import location="../primitive-AEs/StanfordParser.xml"/>
+    </delegateAnalysisEngine>
+    <delegateAnalysisEngine key="InfexBAParagraphSplitter">
+      <import location="../primitive-AEs/InfexBAParagraphSplitter.xml"/>
+    
+    </delegateAnalysisEngine>
+  <delegateAnalysisEngine key="ArguAnaTitleAndBodySplitter">
+      <import location="../primitive-AEs/ArguAnaTitleAndBodySplitter.xml"/>
+    
+    
+    </delegateAnalysisEngine>
+  <delegateAnalysisEngine key="InfexBASentenceSplitter">
+      <import location="../primitive-AEs/InfexBASentenceSplitter.xml"/>
+    
+    
+    
+    </delegateAnalysisEngine>
+  <delegateAnalysisEngine key="InfexBATokenizer">
+      <import location="../primitive-AEs/InfexBATokenizer.xml"/>
+    
+    
+    
+    
+    </delegateAnalysisEngine>
+  </delegateAnalysisEngineSpecifiers>
+  <analysisEngineMetaData>
+    <name>PlainTextAnnotatorPipeline</name>
+    <description>Aggregate analysis engine responsible for annotating rhetorical devices as well as constituents like POS tags, body, parapgraphs and sentences; which are used in the detection of rhetorical devices. 
+</description>
+    <version>1.0</version>
+    <vendor>Rhetoric</vendor>
+    <configurationParameters searchStrategy="language_fallback"/>
+    <configurationParameterSettings/>
+    <flowConstraints>
+      <fixedFlow>
+        <node>ArguAnaTitleAndBodySplitter</node>
+        <node>InfexBAParagraphSplitter</node>
+        <node>InfexBASentenceSplitter</node>
+      <node>InfexBATokenizer</node>
+      <node>StanfordParser</node>
+      <node>SyntacticRhetoricSimpleAnnotator</node>
+      </fixedFlow>
+    </flowConstraints>
+    <typePriorities>
+      <priorityList>
+        <type>uima.tcas.Annotation</type>
+        <type>de.aitools.ie.uima.type.core.Sentence</type>
+        <type>de.aitools.ie.uima.type.core.Token</type>
+        </priorityList>
+    </typePriorities>
+    <fsIndexCollection/>
+    <capabilities>
+      <capability>
+        <inputs/>
+        <outputs>
+          <type>de.aitools.ie.uima.type.core.Token</type>
+          <type allAnnotatorFeatures="true">de.aitools.ie.uima.type.core.Sentence</type>
+          <type allAnnotatorFeatures="true">de.aitools.ie.uima.type.core.Constituent</type>
+        <type allAnnotatorFeatures="true">type.rhetoricDetection.IfConditional</type>
+        <type allAnnotatorFeatures="true">de.aitools.ie.uima.type.core.Paragraph</type>
+          <feature>de.aitools.ie.uima.type.core.Token:depLabel</feature>
+          <feature>de.aitools.ie.uima.type.core.Token:parent</feature>
+          <feature>de.aitools.ie.uima.type.core.Token:end</feature>
+          <feature>de.aitools.ie.uima.type.core.Token:begin</feature>
+        <type allAnnotatorFeatures="true">de.aitools.ie.uima.type.arguana.Title</type>
+          <type allAnnotatorFeatures="true">de.aitools.ie.uima.type.arguana.Body</type>
+        </outputs>
+        <languagesSupported/>
+      </capability>
+    </capabilities>
+  <operationalProperties>
+      <modifiesCas>true</modifiesCas>
+      <multipleDeploymentAllowed>true</multipleDeploymentAllowed>
+      <outputsNewCASes>false</outputsNewCASes>
+    </operationalProperties>
+  </analysisEngineMetaData>
+  <resourceManagerConfiguration/>
+</analysisEngineDescription>

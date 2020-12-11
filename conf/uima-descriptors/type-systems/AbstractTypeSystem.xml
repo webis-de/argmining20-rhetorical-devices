@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<typeSystemDescription xmlns="http://uima.apache.org/resourceSpecifier">
+	<name>AbstractTypeSystem</name>
+	<description>The basic type system with all abstract annotation types to be distinguished within any UIMA project. 
+
+The annotation types defined here are not meant for creating instances of them. Rather, they define the abstract supertypes, from which all annotation types to be instantiated shall inherit.
+
+The basic type system can be understood as consisting of two layers:
+
+Upper layer:
+In the upper layer, four annotation types are distinguished that refer to units of a text, entities in a text, relations between annotations, and categories of a text. These types are supposed to represent all possible types of annotations on a very high level.
+
+Lower layer:
+The lower layer contains frequent subtypes of the four annotation types, such as events as a subtype of relations.
+
+Type systems that define types based on the abstract type system may inherit from both the upper layer types and the lower layer types.</description>
+	<version>1.0</version>
+	<vendor>Webis</vendor>
+	<types>
+
+		<typeDescription>
+      <name>de.aitools.ie.uima.type.supertype.Unit</name>
+      <description>The supertype of all annotation types that refer to units of a text.</description>
+      <supertypeName>uima.tcas.Annotation</supertypeName>
+    </typeDescription>
+  <typeDescription>
+      <name>de.aitools.ie.uima.type.supertype.Entity</name>
+      <description>The supertype of all entity types.</description>
+      <supertypeName>uima.tcas.Annotation</supertypeName>
+    </typeDescription>
+    <typeDescription>
+      <name>de.aitools.ie.uima.type.supertype.Relation</name>
+      <description>The supertype of all relation types.</description>
+      <supertypeName>uima.tcas.Annotation</supertypeName>
+    </typeDescription>
+    <typeDescription>
+      <name>de.aitools.ie.uima.type.supertype.Category</name>
+      <description>The supertype of all annotation types that refer to categories of a text.</description>
+      <supertypeName>uima.tcas.Annotation</supertypeName>
+    </typeDescription>
+  <typeDescription>
+      <name>de.aitools.ie.uima.type.supertype.GrammaticalUnit</name>
+      <description>The supertype of all grammatical units of a text.</description>
+      <supertypeName>de.aitools.ie.uima.type.supertype.Unit</supertypeName>
+    </typeDescription>
+    <typeDescription>
+      <name>de.aitools.ie.uima.type.supertype.Term</name>
+      <description>The supertype of all terms, which can be understood as some kind of (non-named, non-numeric) entity.</description>
+      <supertypeName>de.aitools.ie.uima.type.supertype.Entity</supertypeName>
+    </typeDescription>
+    <typeDescription>
+      <name>de.aitools.ie.uima.type.supertype.NumericExpression</name>
+      <description>The supertype of all numeric expressions.</description>
+      <supertypeName>de.aitools.ie.uima.type.supertype.Entity</supertypeName>
+    </typeDescription>
+    <typeDescription>
+      <name>de.aitools.ie.uima.type.supertype.Event</name>
+      <description>The supertype of all events in the information extraction sense. I.e., a type of relation combining different other types of entities and the like.</description>
+      <supertypeName>de.aitools.ie.uima.type.supertype.Relation</supertypeName>
+    </typeDescription>
+    <typeDescription>
+      <name>de.aitools.ie.uima.type.supertype.Metadata</name>
+      <description>The supertype of all text metadata annotations.</description>
+      <supertypeName>de.aitools.ie.uima.type.supertype.Category</supertypeName>
+    </typeDescription>
+    <typeDescription>
+      <name>de.aitools.ie.uima.type.supertype.Classification</name>
+      <description>The supertype of all classification categories of a text, i.e., categories that specify some classifiable property of the text.</description>
+      <supertypeName>de.aitools.ie.uima.type.supertype.Category</supertypeName>
+    </typeDescription>
+  <typeDescription>
+      <name>de.aitools.ie.uima.type.supertype.NamedEntity</name>
+      <description>The supertype of all named entity types.</description>
+      <supertypeName>de.aitools.ie.uima.type.supertype.Entity</supertypeName>
+    </typeDescription>
+  </types>
+</typeSystemDescription>

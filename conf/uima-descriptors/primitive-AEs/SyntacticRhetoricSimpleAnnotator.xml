@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<analysisEngineDescription xmlns="http://uima.apache.org/resourceSpecifier">
+  <frameworkImplementation>org.apache.uima.java</frameworkImplementation>
+  <primitive>true</primitive>
+  <annotatorImplementationName>rhetoricDetection.SyntacticRhetoricSimpleAnnotator</annotatorImplementationName>
+  <analysisEngineMetaData>
+    <name>SyntacticRhetoricSimpleAnnotator</name>
+    <description>Aggregate analysis engine able to annotate 26  rhetorical devices: 
+
+1.) Anadiplosis
+2.) Asyndeton
+3.) Comparative Adjective
+4.) Comparative Adverb
+5.) Diacope
+6.) Enumeration
+7.) Epanalepsis
+8.) Epiphoza
+9.) Epizeugma
+10.) Epizeuxis
+11.) Hypozeugma
+12.) If Conditional One
+13.) If Conditional Three
+14.) If Conditional Tw
+15.) If Conditional Zero
+16.) If Counterfactual
+17.) Isocolon
+18.) Mesarchia
+19.) Mesodiplosis
+20.) Passive Voice
+21.) Polysyndeton
+22.) Pysma
+23.) Superlative Adjective
+24.) Superlative Adverb
+25.) Unless Conditional
+26.) Whether Conditional
+
+Requires sentences and tokens as input and produces RD annotations.
+
+Works only for English texts.
+
+For more details, see the source code and javadoc.</description>
+    <version>1.0</version>
+    <vendor>RhetoricDetection</vendor>
+    <configurationParameters searchStrategy="language_fallback">
+      <configurationParameter>
+        <name>StopwordsLexicon</name>
+        <description>List of stopwords in English language to be used in detection certain rhetorical devices.</description>
+        <type>String</type>
+        <multiValued>false</multiValued>
+        <mandatory>true</mandatory>
+      </configurationParameter>
+    </configurationParameters>
+    <configurationParameterSettings>
+      <nameValuePair>
+        <name>StopwordsLexicon</name>
+        <value>
+          <string>lexicons/RhetoricDetectionStopwords/en_stopwords_list.txt</string>
+        </value>
+      </nameValuePair>
+    </configurationParameterSettings>
+    <typeSystemDescription>
+      <imports>
+        <import location="../type-systems/AbstractTypeSystem.xml"/>
+        <import location="../type-systems/CoreTypeSystem.xml"/>
+      <import location="../type-systems/ArguAnaTypeSystem.xml"/>
+      <import location="../type-systems/RhetoricTypeSystem.xml"/>
+        <import location="../type-systems/BasicTypeSystem.xml"/>
+      </imports>
+    </typeSystemDescription>
+    <typePriorities>
+      <priorityList>
+        <type>de.aitools.ie.uima.type.core.Constituent</type>
+        </priorityList>
+    </typePriorities>
+    <fsIndexCollection/>
+    <capabilities>
+      <capability>
+        <inputs>
+          <type>de.aitools.ie.uima.type.core.Token</type>
+          <type allAnnotatorFeatures="true">de.aitools.ie.uima.type.core.Sentence</type>
+          <feature>de.aitools.ie.uima.type.core.Token:end</feature>
+          <feature>de.aitools.ie.uima.type.core.Token:begin</feature>
+          <feature>de.aitools.ie.uima.type.core.Token:sofa</feature>
+        </inputs>
+        <outputs>
+          <type allAnnotatorFeatures="true">de.aitools.ie.uima.type.core.Constituent</type>
+        <type allAnnotatorFeatures="true">type.rhetoricDetection.verbsPassiveVoice</type>
+        <type allAnnotatorFeatures="true">type.rhetoricDetection.IfConditional</type>
+        </outputs>
+        <languagesSupported/>
+      </capability>
+    </capabilities>
+    <operationalProperties>
+      <modifiesCas>true</modifiesCas>
+      <multipleDeploymentAllowed>true</multipleDeploymentAllowed>
+      <outputsNewCASes>false</outputsNewCASes>
+    </operationalProperties>
+  </analysisEngineMetaData>
+  <resourceManagerConfiguration/>
+</analysisEngineDescription>

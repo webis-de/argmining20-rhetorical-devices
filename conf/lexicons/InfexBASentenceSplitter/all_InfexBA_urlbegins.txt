@@ -1,0 +1,6 @@
+www.
+https:
+http:
+ftps:
+ftp:
+mailto:

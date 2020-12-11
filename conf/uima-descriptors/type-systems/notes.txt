@@ -1,0 +1,11 @@
+This folder contains all Apache UIMA descriptor files for type systems. A type
+system specifies all annotation types to be distinguished within a project.
+
+The ways of using type systems proposed here is to define an 
+project-specific type system if needed, but to important the most specific,
+more general existing type system into the project-specific type system.
+
+For instance, if some time and money annotations types are needed that do not
+exist yet, a financial type system is created with these types. The financial
+type system imports the core type system to reuse general annotation types like 
+Token, Sentence, Sentiment, etc.

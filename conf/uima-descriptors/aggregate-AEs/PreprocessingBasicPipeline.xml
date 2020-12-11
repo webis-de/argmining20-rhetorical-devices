@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<analysisEngineDescription xmlns="http://uima.apache.org/resourceSpecifier">
+  <frameworkImplementation>org.apache.uima.java</frameworkImplementation>
+  <primitive>false</primitive>  
+  <delegateAnalysisEngineSpecifiers>
+    <delegateAnalysisEngine key="InfexBAParagraphSplitter">
+      <import location="../primitive-AEs/InfexBAParagraphSplitter.xml"/>
+    </delegateAnalysisEngine>
+    <delegateAnalysisEngine key="InfexBASentenceSplitter">
+      <import location="../primitive-AEs/InfexBASentenceSplitter.xml"/>
+    </delegateAnalysisEngine>
+    <delegateAnalysisEngine key="InfexBATokenizer">
+      <import location="../primitive-AEs/InfexBATokenizer.xml"/>
+    </delegateAnalysisEngine>
+  <delegateAnalysisEngine key="DummyAnalysisEngine">
+      <import location="../primitive-AEs/DummyStatisticsAE.xml"/>
+    
+    </delegateAnalysisEngine>
+  </delegateAnalysisEngineSpecifiers>
+  <analysisEngineMetaData>
+    <name>PreprocessingBasicPipeline</name>
+    <description>Pipeline for basic lexical and syntactic segmentation of plain texts. Composes the segmentation algorithms originally developed in the InfexBA context.
+
+Requires no annotations as input and produces paragraph, sentence, token annotations.</description>
+    <version>1.0</version>
+    <vendor>Webis</vendor>
+    <configurationParameters/>
+    <configurationParameterSettings/>
+    <flowConstraints>
+      <fixedFlow>
+        <node>InfexBAParagraphSplitter</node>
+        <node>InfexBASentenceSplitter</node>
+        <node>InfexBATokenizer</node>
+      <node>DummyAnalysisEngine</node>
+      </fixedFlow>
+    </flowConstraints>
+    <typePriorities>
+      <priorityList>
+        <type>de.aitools.ie.uima.type.core.Paragraph</type>
+        <type>de.aitools.ie.uima.type.core.Sentence</type>
+        <type>de.aitools.ie.uima.type.core.Token</type>
+      </priorityList>
+    </typePriorities>
+    <fsIndexCollection/>
+    <capabilities>
+      <capability>
+        <inputs/>
+        <outputs>
+          <type>de.aitools.ie.uima.type.core.Token</type>
+          <type allAnnotatorFeatures="true">de.aitools.ie.uima.type.core.Sentence</type>
+          <type allAnnotatorFeatures="true">de.aitools.ie.uima.type.core.Paragraph</type>
+          <feature>de.aitools.ie.uima.type.core.Token:end</feature>
+          <feature>de.aitools.ie.uima.type.core.Token:begin</feature>
+          <feature>de.aitools.ie.uima.type.core.Token:sofa</feature>
+        </outputs>
+        <languagesSupported/>
+      </capability>
+    </capabilities>
+  <operationalProperties>
+      <modifiesCas>true</modifiesCas>
+      <multipleDeploymentAllowed>true</multipleDeploymentAllowed>
+      <outputsNewCASes>false</outputsNewCASes>
+    </operationalProperties>
+  </analysisEngineMetaData>
+  <resourceManagerConfiguration/>
+</analysisEngineDescription>

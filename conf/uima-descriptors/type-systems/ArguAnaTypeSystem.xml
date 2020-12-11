@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<typeSystemDescription xmlns="http://uima.apache.org/resourceSpecifier">
+  <name>ArguAnaTypeSystem</name>
+  <description>The type system that defines all non-general annotations types in the focus of the ArguAna project.</description>
+  <version>1.0</version>
+  <vendor>ArguAna</vendor>
+  <imports>
+    <import location="CoreTypeSystem.xml"/>
+  </imports>
+  <types>
+    <typeDescription>
+      <name>de.aitools.ie.uima.type.arguana.Statement</name>
+      <description>A statement, i.e. a sentence or a part of a sentence
+				that is meaningful on its own.</description>
+      <supertypeName>de.aitools.ie.uima.type.supertype.Unit</supertypeName>
+    </typeDescription>
+    <typeDescription>
+      <name>de.aitools.ie.uima.type.arguana.Sentiment</name>
+      <description>The sentiment annotation type.</description>
+      <supertypeName>de.aitools.ie.uima.type.supertype.Classification</supertypeName>
+      <features>
+        <featureDescription>
+          <name>polarity</name>
+          <description>The polarity of the sentiment.</description>
+          <rangeTypeName>uima.cas.String</rangeTypeName>
+        </featureDescription>
+        <featureDescription>
+          <name>score</name>
+          <description>The sentiment given as a score from a certain range,
+						such as 0.0 to 0.1 or 1.0 to 5.0.</description>
+          <rangeTypeName>uima.cas.Double</rangeTypeName>
+        </featureDescription>
+        </features>
+    </typeDescription>
+    <typeDescription>
+      <name>de.aitools.ie.uima.type.arguana.Opinion</name>
+      <description>The opinion annotation type, i.e., statements with
+				sentiment (subjective statements).</description>
+      <supertypeName>de.aitools.ie.uima.type.arguana.Statement</supertypeName>
+      <features>
+        <featureDescription>
+          <name>polarity</name>
+          <description>The polarity of the opinion.</description>
+          <rangeTypeName>uima.cas.String</rangeTypeName>
+        </featureDescription>
+      </features>
+    </typeDescription>
+    <typeDescription>
+      <name>de.aitools.ie.uima.type.arguana.Fact</name>
+      <description>The fact annotation type, i.e., statements without
+				sentiment (objective statements).</description>
+      <supertypeName>de.aitools.ie.uima.type.arguana.Statement</supertypeName>
+    </typeDescription>
+    <typeDescription>
+      <name>de.aitools.ie.uima.type.arguana.Product</name>
+      <description>A product</description>
+      <supertypeName>de.aitools.ie.uima.type.supertype.NamedEntity</supertypeName>
+    </typeDescription>
+    <typeDescription>
+      <name>de.aitools.ie.uima.type.arguana.ProductFeature</name>
+      <description>A product feature</description>
+      <supertypeName>de.aitools.ie.uima.type.supertype.Term</supertypeName>
+    </typeDescription>
+    <typeDescription>
+      <name>de.aitools.ie.uima.type.arguana.Aspects</name>
+      <description>The rating aspects annotation type.</description>
+      <supertypeName>de.aitools.ie.uima.type.supertype.Metadata</supertypeName>
+      <features>
+        <featureDescription>
+          <name>atmosphere</name>
+          <description>The atmosphere aspect.</description>
+          <rangeTypeName>uima.cas.Double</rangeTypeName>
+        </featureDescription>
+        <featureDescription>
+          <name>breakfast</name>
+          <description>The breakfast aspect</description>
+          <rangeTypeName>uima.cas.Double</rangeTypeName>
+        </featureDescription>
+        <featureDescription>
+          <name>business</name>
+          <description>The business aspect.</description>
+          <rangeTypeName>uima.cas.Double</rangeTypeName>
+        </featureDescription>
+        <featureDescription>
+          <name>cleanliness</name>
+          <description>The cleanliness aspect.</description>
+          <rangeTypeName>uima.cas.Double</rangeTypeName>
+        </featureDescription>
+        <featureDescription>
+          <name>comfortableness</name>
+          <description>The comfortableness aspect</description>
+          <rangeTypeName>uima.cas.Double</rangeTypeName>
+        </featureDescription>
+        <featureDescription>
+          <name>frontDesk</name>
+          <description>The front desk aspect.</description>
+          <rangeTypeName>uima.cas.Double</rangeTypeName>
+        </featureDescription>
+        <featureDescription>
+          <name>hotelConfiguration</name>
+          <description>The hotel configuration aspect</description>
+          <rangeTypeName>uima.cas.Double</rangeTypeName>
+        </featureDescription>
+        <featureDescription>
+          <name>location</name>
+          <description>The location aspect</description>
+          <rangeTypeName>uima.cas.Double</rangeTypeName>
+        </featureDescription>
+        <featureDescription>
+          <name>restaurant</name>
+          <description>The restaurant aspect</description>
+          <rangeTypeName>uima.cas.Double</rangeTypeName>
+        </featureDescription>
+        <featureDescription>
+          <name>room</name>
+          <description>The room aspect.</description>
+          <rangeTypeName>uima.cas.Double</rangeTypeName>
+        </featureDescription>
+        <featureDescription>
+          <name>roomConfiguration</name>
+          <description>The room configuration aspect</description>
+          <rangeTypeName>uima.cas.Double</rangeTypeName>
+        </featureDescription>
+        <featureDescription>
+          <name>roomSize</name>
+          <description>The room size aspect</description>
+          <rangeTypeName>uima.cas.Double</rangeTypeName>
+        </featureDescription>
+        <featureDescription>
+          <name>sanitaries</name>
+          <description>The sanitary aspect</description>
+          <rangeTypeName>uima.cas.Double</rangeTypeName>
+        </featureDescription>
+        <featureDescription>
+          <name>service</name>
+          <description>The service aspect.</description>
+          <rangeTypeName>uima.cas.Double</rangeTypeName>
+        </featureDescription>
+        <featureDescription>
+          <name>value</name>
+          <description>The value aspect.</description>
+          <rangeTypeName>uima.cas.Double</rangeTypeName>
+        </featureDescription>
+      </features>
+    </typeDescription>
+    <typeDescription>
+      <name>de.aitools.ie.uima.type.arguana.HotelData</name>
+      <description>The hotel data annotation type.</description>
+      <supertypeName>de.aitools.ie.uima.type.supertype.Metadata</supertypeName>
+      <features>
+        <featureDescription>
+          <name>city</name>
+          <description>The city or similar type of location the hotel is
+						located in.</description>
+          <rangeTypeName>uima.cas.String</rangeTypeName>
+        </featureDescription>
+        <featureDescription>
+          <name>country</name>
+          <description>The country the hotel is located in.</description>
+          <rangeTypeName>uima.cas.String</rangeTypeName>
+        </featureDescription>
+        <featureDescription>
+          <name>hotelID</name>
+          <description>The ID of the hotel</description>
+          <rangeTypeName>uima.cas.Integer</rangeTypeName>
+        </featureDescription>
+        <featureDescription>
+          <name>province</name>
+          <description>The province of the city where the hotel is.</description>
+          <rangeTypeName>uima.cas.String</rangeTypeName>
+        </featureDescription>
+        <featureDescription>
+          <name>stars</name>
+          <description>The number of stars of the hotel</description>
+          <rangeTypeName>uima.cas.Integer</rangeTypeName>
+        </featureDescription>
+      </features>
+    </typeDescription>
+    <typeDescription>
+      <name>de.aitools.ie.uima.type.arguana.RatingData</name>
+      <description/>
+      <supertypeName>de.aitools.ie.uima.type.supertype.Metadata</supertypeName>
+      <features>
+        <featureDescription>
+          <name>ageGroup</name>
+          <description>The age group of the rater.</description>
+          <rangeTypeName>uima.cas.String</rangeTypeName>
+        </featureDescription>
+        <featureDescription>
+          <name>author</name>
+          <description>The name of the author of the rating.</description>
+          <rangeTypeName>uima.cas.String</rangeTypeName>
+        </featureDescription>
+        <featureDescription>
+          <name>date</name>
+          <description>The creation date of the rating.</description>
+          <rangeTypeName>uima.cas.String</rangeTypeName>
+        </featureDescription>
+        <featureDescription>
+          <name>personType</name>
+          <description>The person type of the rater.</description>
+          <rangeTypeName>uima.cas.String</rangeTypeName>
+        </featureDescription>
+      </features>
+    </typeDescription>
+    <typeDescription>
+      <name>de.aitools.ie.uima.type.arguana.DiscourseRelation</name>
+      <description>The discourse relation type with a nucleus, a satellite, and a relation type.</description>
+      <supertypeName>de.aitools.ie.uima.type.supertype.Relation</supertypeName>
+      <features>
+        <featureDescription>
+          <name>nucleus</name>
+          <description>The nucleus statement of the relation.</description>
+          <rangeTypeName>de.aitools.ie.uima.type.arguana.Statement</rangeTypeName>
+        </featureDescription>
+        <featureDescription>
+          <name>satellite</name>
+          <description>The satellite statement of the relation.</description>
+          <rangeTypeName>de.aitools.ie.uima.type.arguana.Statement</rangeTypeName>
+        </featureDescription>
+        <featureDescription>
+          <name>clazz</name>
+          <description>The type of discourse relation</description>
+          <rangeTypeName>uima.cas.String</rangeTypeName>
+        </featureDescription>
+      </features>
+    </typeDescription>
+    <typeDescription>
+      <name>de.aitools.ie.uima.type.arguana.Title</name>
+      <description>The annotation type used to identify titles in a text.</description>
+      <supertypeName>de.aitools.ie.uima.type.supertype.Unit</supertypeName>
+    </typeDescription>
+    <typeDescription>
+      <name>de.aitools.ie.uima.type.arguana.Body</name>
+      <description>The body of a text as opposed to the title of the text</description>
+      <supertypeName>de.aitools.ie.uima.type.supertype.Unit</supertypeName>
+    </typeDescription>
+  <typeDescription>
+      <name>de.aitools.ie.uima.type.arguana.Usefulness</name>
+      <description>The usefulness of a text, measured in terms of the relatedness, coverage, and informativeness of the text.</description>
+      <supertypeName>de.aitools.ie.uima.type.supertype.Classification</supertypeName>
+      <features>
+        <featureDescription>
+          <name>relatedness</name>
+          <description>The relatedness score</description>
+          <rangeTypeName>uima.cas.Double</rangeTypeName>
+        </featureDescription>
+        <featureDescription>
+          <name>coverage</name>
+          <description>The coverage score</description>
+          <rangeTypeName>uima.cas.Double</rangeTypeName>
+        </featureDescription>
+        <featureDescription>
+          <name>informativeness</name>
+          <description>The informativeness score</description>
+          <rangeTypeName>uima.cas.Double</rangeTypeName>
+        </featureDescription>
+      </features>
+    </typeDescription>
+  </types>
+</typeSystemDescription>

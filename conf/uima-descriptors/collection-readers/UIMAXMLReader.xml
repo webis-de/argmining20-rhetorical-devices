@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<collectionReaderDescription xmlns="http://uima.apache.org/resourceSpecifier">
+<frameworkImplementation>org.apache.uima.java</frameworkImplementation>
+<implementationName>rhetoricDetection.aitools.collection.UIMAXMLReader</implementationName>
+<processingResourceMetaData>
+<name>UIMAXMLReader</name>
+<description>Reads all texts from a given collection of xml files (with suffix "xml") and inserts the text into a UIMA CAS object. 
+
+The text files are taken from a specified directory and all its subdirectories.
+
+Used to process NYT Corpus.</description>
+<version>1.0</version>
+<vendor>ArguAna</vendor>
+<configurationParameters>
+<configurationParameter>
+<name>InputDirectory</name>
+<description>Directory containing input files</description>
+<type>String</type>
+<multiValued>false</multiValued>
+<mandatory>true</mandatory>
+</configurationParameter>
+<configurationParameter>
+<name>Encoding</name>
+<description>Character encoding for the documents.  If not specified,
+                   the default system encoding will be used.  Note that this parameter
+                   only applies if there is no CAS Initializer provided; otherwise,
+                   it is the CAS Initializer's responsibility to deal with character
+                   encoding issues.</description>
+<type>String</type>
+<multiValued>false</multiValued>
+<mandatory>false</mandatory>
+</configurationParameter>
+<configurationParameter>
+        <name>IncludeSubdirectories</name>
+        <description>Whether to process also the subdirectories of the specified directory</description>
+        <type>Boolean</type>
+        <multiValued>false</multiValued>
+        <mandatory>true</mandatory>
+      </configurationParameter>
+    <configurationParameter>
+        <name>SortFilesByPath</name>
+        <description>Whether to sort the files to be read according to their absolute file path in increasing order.</description>
+        <type>Boolean</type>
+        <multiValued>false</multiValued>
+        <mandatory>false</mandatory>
+      </configurationParameter>
+</configurationParameters>
+<configurationParameterSettings>
+<nameValuePair>
+<name>Encoding</name>
+<value>
+<string>utf-8</string>
+</value>
+</nameValuePair>
+  <nameValuePair>
+        <name>IncludeSubdirectories</name>
+        <value>
+          <boolean>true</boolean>
+        </value>
+      </nameValuePair>
+<nameValuePair>
+        <name>InputDirectory</name>
+        <value>
+          <string>.</string>
+        </value>
+      </nameValuePair>
+    <nameValuePair>
+        <name>SortFilesByPath</name>
+        <value>
+          <boolean>true</boolean>
+        </value>
+      </nameValuePair>
+    </configurationParameterSettings>
+<typeSystemDescription>
+<imports>
+<import name="org.apache.uima.examples.SourceDocumentInformation"/>
+</imports>
+</typeSystemDescription>
+<typePriorities/>
+<fsIndexCollection/>
+<capabilities>
+<capability>
+<inputs/>
+<outputs>
+<type allAnnotatorFeatures="true">org.apache.uima.examples.SourceDocumentInformation</type>
+</outputs>
+<languagesSupported/>
+</capability>
+</capabilities>
+<operationalProperties>
+<modifiesCas>true</modifiesCas>
+<multipleDeploymentAllowed>false</multipleDeploymentAllowed>
+<outputsNewCASes>true</outputsNewCASes>
+</operationalProperties>
+</processingResourceMetaData>
+<resourceManagerConfiguration/>
+</collectionReaderDescription>

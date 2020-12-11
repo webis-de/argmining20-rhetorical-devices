@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<analysisEngineDescription xmlns="http://uima.apache.org/resourceSpecifier">
+  <frameworkImplementation>org.apache.uima.java</frameworkImplementation>
+  <primitive>true</primitive>
+  <annotatorImplementationName>rhetoricDetection.aitools.InfexBAParagraphSplitter</annotatorImplementationName>
+  <analysisEngineMetaData>
+    <name>InfexBAParagraphSplitter</name>
+    <description>Very simple and efficient paragraph splitter that defines a paragraph to end with a paragraph separator or a one or two line separators (depending on a respective parameter). 
+
+By default, a sinlge line break is seen as enough to indicate a paragraph line break.
+
+Does not require any input annotations and produces paragraph annotations.
+
+Works with texts from all domains and of all languages that split paragraphs as specified.
+
+
+TAGS FOR INTERNAL USE
+
+@RUNTIME_PER_SENTENCE_CONLL_DE 0.004
+@RUNTIME_PER_SENTENCE_REVENUE 0.003
+@RUNTIME_PER_SENTENCE_LFA11_SM 0.003</description>
+    <version>1.0</version>
+    <vendor>InfexBA</vendor>
+    <configurationParameters>
+      <configurationParameter>
+        <name>DoubleLineBreaks</name>
+        <description>Whether to split only at double line breaks or at each line break.</description>
+        <type>Boolean</type>
+        <multiValued>false</multiValued>
+        <mandatory>true</mandatory>
+      </configurationParameter>
+    </configurationParameters>
+    <configurationParameterSettings>
+      <nameValuePair>
+        <name>DoubleLineBreaks</name>
+        <value>
+          <boolean>false</boolean>
+        </value>
+      </nameValuePair>
+    </configurationParameterSettings>
+    <typeSystemDescription>
+      <imports>
+        <import location="../type-systems/CoreTypeSystem.xml"/>
+      </imports>
+    </typeSystemDescription>
+    <typePriorities>
+      <priorityList>
+        <type>uima.tcas.Annotation</type>
+        <type>de.aitools.ie.uima.type.core.Paragraph</type>
+      </priorityList>
+    </typePriorities>
+    <fsIndexCollection/>
+    <capabilities>
+      <capability>
+        <inputs/>
+        <outputs>
+          <type allAnnotatorFeatures="true">de.aitools.ie.uima.type.core.Paragraph</type>
+        </outputs>
+        <languagesSupported/>
+      </capability>
+    </capabilities>
+    <operationalProperties>
+      <modifiesCas>true</modifiesCas>
+      <multipleDeploymentAllowed>true</multipleDeploymentAllowed>
+      <outputsNewCASes>false</outputsNewCASes>
+    </operationalProperties>
+  </analysisEngineMetaData>
+  <resourceManagerConfiguration/>
+</analysisEngineDescription>

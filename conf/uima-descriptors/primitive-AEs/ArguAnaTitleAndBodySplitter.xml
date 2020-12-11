@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<analysisEngineDescription xmlns="http://uima.apache.org/resourceSpecifier">
+  <frameworkImplementation>org.apache.uima.java</frameworkImplementation>
+  <primitive>true</primitive>
+  <annotatorImplementationName>rhetoricDetection.aitools.ArguAnaTitleAndBodySplitter</annotatorImplementationName>
+  <analysisEngineMetaData>
+    <name>ArguAnaTitleAndBodySplitter</name>
+    <description>Very simple and efficient splitter that assumes the beginning of the text as a title ending before the first sequence of two line separators. The rest after these separators is assumed to be the body of the text.
+
+Does not require any input annotations and produces title and body annotations.
+
+The algorithm has been specifically developed for the English hotel reviews from the ArguAnA TripAdvisor corpus (Wachsmuth et. al., CICLing 2014), but works with all texts that conform with the mentioned assumptions.
+
+For more details, see the source code and javadoc.</description>
+    <version>1.0</version>
+    <vendor>ArguAna</vendor>
+    <configurationParameters/>
+    <configurationParameterSettings/>
+    <typeSystemDescription>
+      <imports>
+        <import location="../type-systems/ArguAnaTypeSystem.xml"/>
+      </imports>
+    </typeSystemDescription>
+    <typePriorities/>
+    <fsIndexCollection/>
+    <capabilities>
+      <capability>
+        <inputs/>
+        <outputs>
+          <type allAnnotatorFeatures="true">de.aitools.ie.uima.type.arguana.Title</type>
+          <type allAnnotatorFeatures="true">de.aitools.ie.uima.type.arguana.Body</type>
+        </outputs>
+        <languagesSupported/>
+      </capability>
+    </capabilities>
+    <operationalProperties>
+      <modifiesCas>true</modifiesCas>
+      <multipleDeploymentAllowed>true</multipleDeploymentAllowed>
+      <outputsNewCASes>false</outputsNewCASes>
+    </operationalProperties>
+  </analysisEngineMetaData>
+  <resourceManagerConfiguration/>
+</analysisEngineDescription>

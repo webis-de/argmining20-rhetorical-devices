@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<typeSystemDescription xmlns="http://uima.apache.org/resourceSpecifier">
+    <name>ArgumentationTypeSystem</name>
+    <description>Type system for all annotation types specific to the mining and analysis of argumentation.
+
+Extends the AItools Core type system.
+
+In particular, the specific annotation types cover:
+* Argumentative discourse units that can have a particular type
+* Arguments that compose two units and can have a particular type
+* ... further types are coming soon...
+
+NOTE:
+Please update this text if further annotation types are added to the type system.</description>
+    <version>1.0</version>
+    <vendor>Webis</vendor>
+  <imports>
+    <import location="CoreTypeSystem.xml"/>
+  </imports>
+  <types> 
+    <typeDescription>
+      <name>de.aitools.ie.uima.type.argumentation.ArgumentativeDiscourseUnit</name>
+      <description>A basic unit of an argumentative text. May also cover non-argumenative parts within such a text. The unit may be assigned a certain type.</description>
+      <supertypeName>de.aitools.ie.uima.type.supertype.Unit</supertypeName>
+      <features>
+        <featureDescription>
+          <name>unitType</name>
+          <description>The type of the unit.</description>
+          <rangeTypeName>uima.cas.String</rangeTypeName>
+        </featureDescription>
+      </features>
+    </typeDescription>
+    <typeDescription>
+      <name>de.aitools.ie.uima.type.argumentation.Argument</name>
+      <description>An argument, seen here as a relation between an argumentative unit serving as a premise and an argumentative unit serving as a conclusion. The argument may be assigned a certain type. If the represented argument has more than premise in fact, it can be modeled through multiple annotations of this type.</description>
+      <supertypeName>de.aitools.ie.uima.type.supertype.Relation</supertypeName>
+      <features>
+        <featureDescription>
+          <name>premise</name>
+          <description>The premise of the argument</description>
+          <rangeTypeName>de.aitools.ie.uima.type.argumentation.ArgumentativeDiscourseUnit</rangeTypeName>
+        </featureDescription>
+        <featureDescription>
+          <name>conclusion</name>
+          <description>The conclusion of the argument.</description>
+          <rangeTypeName>de.aitools.ie.uima.type.argumentation.ArgumentativeDiscourseUnit</rangeTypeName>
+        </featureDescription>
+        <featureDescription>
+          <name>argumentType</name>
+          <description>The type of the argument.</description>
+          <rangeTypeName>uima.cas.String</rangeTypeName>
+        </featureDescription>
+      </features>
+    </typeDescription>
+  </types>
+</typeSystemDescription>

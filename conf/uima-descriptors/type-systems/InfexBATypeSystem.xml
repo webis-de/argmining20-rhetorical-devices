@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<typeSystemDescription xmlns="http://uima.apache.org/resourceSpecifier">
+<name>InfexBATypeSystem</name>
+<description>The type system that defines all non-general annotations types in the focus of the InfexBA project.</description>
+<version>1.0</version>
+<vendor>InfexBA</vendor>
+<imports>
+    <import location="CoreTypeSystem.xml"/>
+  </imports>
+  <types>
+<typeDescription>
+<name>de.aitools.ie.uima.type.infexba.RevenueStatement</name>
+<description>Defines a statement on the revenue (and its trend) of a certain matter in a certain time period by a certain author for a certain scope</description>
+<supertypeName>de.aitools.ie.uima.type.supertype.Event</supertypeName>
+<features>
+<featureDescription>
+<name>author</name>
+<description>See description of range type for details.</description>
+<rangeTypeName>de.aitools.ie.uima.type.infexba.Author</rangeTypeName>
+</featureDescription>
+<featureDescription>
+<name>matter</name>
+<description>See description of range type for details.</description>
+<rangeTypeName>de.aitools.ie.uima.type.infexba.Matter</rangeTypeName>
+</featureDescription>
+<featureDescription>
+<name>monetaryExpression</name>
+<description>see Range Type</description>
+<rangeTypeName>de.aitools.ie.uima.type.infexba.MonetaryExpression</rangeTypeName>
+</featureDescription>
+<featureDescription>
+<name>timeExpression</name>
+<description>See description of range type for details.</description>
+<rangeTypeName>de.aitools.ie.uima.type.infexba.TimeExpression</rangeTypeName>
+</featureDescription>
+<featureDescription>
+<name>referencePoint</name>
+<description>See description of range type for details.</description>
+<rangeTypeName>de.aitools.ie.uima.type.infexba.ReferencePoint</rangeTypeName>
+</featureDescription>
+<featureDescription>
+<name>trend</name>
+<description>See description of range type for details.</description>
+<rangeTypeName>de.aitools.ie.uima.type.infexba.Trend</rangeTypeName>
+</featureDescription>
+<featureDescription>
+<name>scope</name>
+<description>The geographic scope of the statement</description>
+<rangeTypeName>de.aitools.ie.uima.type.infexba.Scope</rangeTypeName>
+</featureDescription>
+</features>
+</typeDescription>
+<typeDescription>
+<name>de.aitools.ie.uima.type.infexba.Author</name>
+<description>The author of a statement, i.e. the person or organization who (originally) made the statement.</description>
+<supertypeName>de.aitools.ie.uima.type.supertype.NamedEntity</supertypeName>
+</typeDescription>
+<typeDescription>
+<name>de.aitools.ie.uima.type.infexba.Matter</name>
+<description>The matter of a statement. Please do not use this class itself for annotations but one of its child classes.</description>
+<supertypeName>de.aitools.ie.uima.type.supertype.Entity</supertypeName>
+</typeDescription>
+<typeDescription>
+<name>de.aitools.ie.uima.type.infexba.TimeExpression</name>
+<description>The point in time or time span the monetary expression of a turnover statement refers to.</description>
+<supertypeName>de.aitools.ie.uima.type.supertype.NumericExpression</supertypeName>
+<features>
+        <featureDescription>
+          <name>normalizedstart</name>
+          <description>The start date of the normalized time</description>
+          <rangeTypeName>uima.cas.String</rangeTypeName>
+        </featureDescription>
+        <featureDescription>
+          <name>normalizedend</name>
+          <description>The end date of the normalized time expression</description>
+          <rangeTypeName>uima.cas.String</rangeTypeName>
+        </featureDescription>
+      </features>
+    </typeDescription>
+<typeDescription>
+<name>de.aitools.ie.uima.type.infexba.ReferencePoint</name>
+<description>The point in time the time expression of the revenue statement refers to.</description>
+<supertypeName>de.aitools.ie.uima.type.supertype.NumericExpression</supertypeName>
+</typeDescription>
+<typeDescription>
+<name>de.aitools.ie.uima.type.infexba.MonetaryExpression</name>
+<description>The specified monetary expression of a revenue statement, either relative, absolute or both.</description>
+<supertypeName>de.aitools.ie.uima.type.supertype.NumericExpression</supertypeName>
+</typeDescription>
+<typeDescription>
+<name>de.aitools.ie.uima.type.infexba.Organization</name>
+<description>The matter of a revenue statement if the statement refers to an organization.</description>
+<supertypeName>de.aitools.ie.uima.type.infexba.Matter</supertypeName>
+</typeDescription>
+<typeDescription>
+<name>de.aitools.ie.uima.type.infexba.Market</name>
+<description>The matter of a revenue statement if the statement refers to a branch, a technology, a market or a product.</description>
+<supertypeName>de.aitools.ie.uima.type.infexba.Matter</supertypeName>
+</typeDescription>
+<typeDescription>
+<name>de.aitools.ie.uima.type.infexba.Forecast</name>
+<description>A specific revenue statement which makes predictions on the future revenue of a certain matter.</description>
+<supertypeName>de.aitools.ie.uima.type.infexba.RevenueStatement</supertypeName>
+</typeDescription>
+<typeDescription>
+<name>de.aitools.ie.uima.type.infexba.Declaration</name>
+<description>A specific revenue statement that gives information about the past revenue of a certain matter.</description>
+<supertypeName>de.aitools.ie.uima.type.infexba.RevenueStatement</supertypeName>
+</typeDescription>
+<typeDescription>
+<name>de.aitools.ie.uima.type.infexba.Trend</name>
+<description>The word that signals the trend of a revenue statement, i.e. whether the revenue increases or decreases.</description>
+<supertypeName>de.aitools.ie.uima.type.supertype.Term</supertypeName>
+</typeDescription>
+<typeDescription>
+<name>de.aitools.ie.uima.type.infexba.Relevance</name>
+<description>The relevance of a document regarding the document's supposed topic.</description>
+<supertypeName>de.aitools.ie.uima.type.supertype.Classification</supertypeName>
+<features>
+<featureDescription>
+<name>isRelevant</name>
+<description>True iff. the document is relevant regarding the supposed topic of the document.</description>
+<rangeTypeName>uima.cas.Boolean</rangeTypeName>
+</featureDescription>
+</features>
+</typeDescription>
+<typeDescription>
+<name>de.aitools.ie.uima.type.infexba.Opinion</name>
+<description>The opinion of the author on the topic of the document.</description>
+<supertypeName>de.aitools.ie.uima.type.supertype.Classification</supertypeName>
+<features>
+<featureDescription>
+<name>polarity</name>
+<description>The polarity of the opinion on the document. Please only use "positive", "negative" and "neutral" as values of this feature.</description>
+<rangeTypeName>uima.cas.String</rangeTypeName>
+</featureDescription>
+</features>
+</typeDescription>
+<typeDescription>
+<name>de.aitools.ie.uima.type.infexba.Genre</name>
+<description>The genre of the document's text.</description>
+<supertypeName>de.aitools.ie.uima.type.supertype.Classification</supertypeName>
+<features>
+<featureDescription>
+<name>genreClass</name>
+<description>The genre class the document's text belongs to. Please only use one of the four strings "commercial", "informational", "personal" and "spam" as values for this feature.</description>
+<rangeTypeName>uima.cas.String</rangeTypeName>
+</featureDescription>
+</features>
+</typeDescription>
+<typeDescription>
+<name>de.aitools.ie.uima.type.infexba.Metadata</name>
+<description/>
+<supertypeName>de.aitools.ie.uima.type.supertype.Category</supertypeName>
+<features>
+<featureDescription>
+<name>genre</name>
+<description>See description of corresponding range type for details.</description>
+<rangeTypeName>de.aitools.ie.uima.type.infexba.Genre</rangeTypeName>
+</featureDescription>
+<featureDescription>
+<name>opinion</name>
+<description>See description of corresponding range type for details.</description>
+<rangeTypeName>de.aitools.ie.uima.type.infexba.Opinion</rangeTypeName>
+</featureDescription>
+<featureDescription>
+<name>relevance</name>
+<description>See description of corresponding range type for details.</description>
+<rangeTypeName>de.aitools.ie.uima.type.infexba.Relevance</rangeTypeName>
+</featureDescription>
+<featureDescription>
+<name>language</name>
+<description>The language of the document. To define the language, please use the ISO language code  as given in http://www.ics.uci.edu/pub/ietf/http/related/iso639.txt</description>
+<rangeTypeName>uima.cas.String</rangeTypeName>
+</featureDescription>
+</features>
+</typeDescription>
+<typeDescription>
+<name>de.aitools.ie.uima.type.infexba.Guid</name>
+<description/>
+<supertypeName>de.aitools.ie.uima.type.supertype.Metadata</supertypeName>
+<features>
+<featureDescription>
+<name>uri</name>
+<description/>
+<rangeTypeName>uima.cas.String</rangeTypeName>
+</featureDescription>
+</features>
+</typeDescription>
+<typeDescription>
+<name>de.aitools.ie.uima.type.infexba.Scope</name>
+<description>A geographic scope</description>
+<supertypeName>de.aitools.ie.uima.type.core.Location</supertypeName>
+</typeDescription>
+</types>
+</typeSystemDescription>

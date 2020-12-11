@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<analysisEngineDescription xmlns="http://uima.apache.org/resourceSpecifier">
+  <frameworkImplementation>org.apache.uima.java</frameworkImplementation>
+  <primitive>true</primitive>  <annotatorImplementationName>rhetoricDetection.aitools.StanfordParser</annotatorImplementationName>
+  <analysisEngineMetaData>
+    <name>StanfordParser</name>
+    <description>Wrapper of the StanfordParser that creates a constituency and dependency parse tree.
+
+Requires sentence and token annotations. Produces the depLabel and parent features of the Token annotations as well as Constituent annotations.
+
+The corresponding primitive analysis engine is thread safe.
+
+For more details, see the http://nlp.stanford.edu/software/lex-parser.shtml</description>
+    <version>1.0</version>
+    <vendor>Webis</vendor>
+    <configurationParameters>
+      <configurationParameter>
+        <name>StanfordParserModelPaths</name>
+        <description>Paths to model files for the lexicalized parsers. If none is provided, the PCFGParser is used.</description>
+        <type>String</type>
+        <multiValued>true</multiValued>
+        <mandatory>false</mandatory>
+      </configurationParameter>
+    </configurationParameters>
+    <configurationParameterSettings/>
+    <typeSystemDescription>
+      <imports>
+        <import location="../type-systems/CoreTypeSystem.xml"/>
+      </imports>
+    </typeSystemDescription>
+    <typePriorities/>
+    <fsIndexCollection/>
+    <capabilities>
+      <capability>
+        <inputs>
+          <type>de.aitools.ie.uima.type.core.Token</type>
+          <type>de.aitools.ie.uima.type.core.Sentence</type>
+          <feature>de.aitools.ie.uima.type.core.Sentence:end</feature>
+          <feature>de.aitools.ie.uima.type.core.Sentence:begin</feature>
+          <feature>de.aitools.ie.uima.type.core.Sentence:sofa</feature>
+          <feature>de.aitools.ie.uima.type.core.Token:end</feature>
+          <feature>de.aitools.ie.uima.type.core.Token:begin</feature>
+          <feature>de.aitools.ie.uima.type.core.Token:sofa</feature>
+        </inputs>
+        <outputs>
+          <type allAnnotatorFeatures="true">de.aitools.ie.uima.type.core.Constituent</type>
+          <feature>de.aitools.ie.uima.type.core.Token:depLabel</feature>
+          <feature>de.aitools.ie.uima.type.core.Token:parent</feature>
+        </outputs>
+        <languagesSupported/>
+      </capability>
+    </capabilities>
+  <operationalProperties>
+      <modifiesCas>true</modifiesCas>
+      <multipleDeploymentAllowed>true</multipleDeploymentAllowed>
+      <outputsNewCASes>false</outputsNewCASes>
+    </operationalProperties>
+  </analysisEngineMetaData>
+  <resourceManagerConfiguration/>
+</analysisEngineDescription>
