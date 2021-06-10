@@ -17,16 +17,6 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry combineaccessrules="false" kind="src" path="/aitools4-ie-uima"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/thirdparty-apache-commons-collections-3.2.1"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/thirdparty-apache-uima-2.7.0"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/nyt-corpus-document-parser"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/thirdparty-stanford-corenlp-3.5.2"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/thirdparty-weka-3.7.4"/>
-	<classpathentry kind="lib" path="C:/Users/viorel.morari/java-workspace/stanford-postagger-3.8.0/stanford-postagger-3.8.0.jar">
-		<attributes>
-			<attribute name="javadoc_location" value="jar:file:/C:/Users/viorel.morari/java-workspace/stanford-postagger-3.8.0/stanford-postagger-3.8.0-javadoc.jar!/"/>
-		</attributes>
-	</classpathentry>
+	<classpathentry kind="lib" path="aitools4-ie-uima.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
