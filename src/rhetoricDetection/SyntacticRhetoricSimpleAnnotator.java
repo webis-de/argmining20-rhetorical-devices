@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -460,7 +461,8 @@ public class SyntacticRhetoricSimpleAnnotator extends JCasAnnotator_ImplBase {
 		try {
 			Ruta.apply(jcas.getCas(), nouns);
 			Ruta.apply(jcas.getCas(), verbs);
-			Ruta.apply(jcas.getCas(), dependents);
+			// deactivate annotation of dependents as it is not used
+			// Ruta.apply(jcas.getCas(), dependents);
 			Ruta.apply(jcas.getCas(), conjunctions);
 			Ruta.apply(jcas.getCas(), verbsPassiveVoice);
 			Ruta.apply(jcas.getCas(), rulesAsyndeton, asyndetonAdditionalParams);
@@ -508,18 +510,7 @@ public class SyntacticRhetoricSimpleAnnotator extends JCasAnnotator_ImplBase {
 			}
 			
 		}
-//		FSIterator<Annotation> condZeroAnnotIter = jcas.getAnnotationIndex(zeugmaConstituent.type).iterator();
-//		while (condZeroAnnotIter.hasNext()){
-//			Annotation docAnnotation = condZeroAnnotIter.next();
-//			zeugmaConstituents.add((zeugmaConstituent) docAnnotation);
-//		}
-//		int counter = 0;
-//		for (zeugmaConstituent device : zeugmaConstituents) {
-//			System.out.println(device.getCoveredText());
-//			counter++;
-//			
-//		}
-		System.out.println("RD count new: "+counter);
+		System.out.println("TripleEnumeration count : "+counter);
 	}
 
 	
@@ -1312,15 +1303,15 @@ public class SyntacticRhetoricSimpleAnnotator extends JCasAnnotator_ImplBase {
 		   * 
 		   * Examples of isocolon may fall under any of the following types:
 		   * 
-		   * 	Bicolon – has two grammatically equal structures. 
-		   * 			  An example for this is Harley Davidson’s slogan “American by Birth. Rebel by Choice.”
+		   * 	Bicolon: has two grammatically equal structures. 
+		   * 			  An example for this is Harley Davidson's slogan "American by Birth. Rebel by Choice."
 		   * 
-		   * 	Tricolon – If there are three grammatically equal structures, it is called a tricolon. 
-		   * 			   Such as: “That government of the people, by the people, and for the people 
-		   * 			   shall not perish from the earth.” (Abraham Lincoln)
+		   * 	Tricolon: If there are three grammatically equal structures, it is called a tricolon. 
+		   * 			   Such as: "That government of the people, by the people, and for the people 
+		   * 			   shall not perish from the earth." (Abraham Lincoln)
 		   * 
-		   * 	Tetracolon – “I’ll give my jewels for a set of beads, /My gorgeous palace for a hermitage, 
-		   * 				  /My gay apparel for an almsman’s gown, /My figured goblets for a dish of wood…” 
+		   * 	Tetracolon: "I'll give my jewels for a set of beads, /My gorgeous palace for a hermitage, 
+		   * 				  /My gay apparel for an almsman's gown, /My figured goblets for a dish of wood" 
 		   * 				  (Richard II by William Shakespeare). 
 		   * 				  This is an example of tetracolon, where four parallel grammatical 
 		   * 				  structures are written in succession.

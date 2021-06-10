@@ -34,13 +34,7 @@ public class PlainText2XMIConverter {
 	 * The path of root directory of the files to be processed.
 	 */
 	private static final String INPUT_COLLECTION_DIR = 
-//			"data/editorials/";
-//			"data/sample-data/";
-//			"data/stopwords/";
-			"data/rhetorical-devices-recall/";
-//			"data/10articlesForAnnotators/";
-//			"data/isocolon-evaluation/isocolon-in-files/";
-//			"data/isocolon-evaluation/all-but-isocolon/";
+			"input/";
 	/**
 	 * The path of the XMI file of the collection reader to be used to iterate
 	 * over all files to be processed.
@@ -79,13 +73,7 @@ public class PlainText2XMIConverter {
 	 * The path of the directory where the XMI files shall be written to
 	 */
 	private static final String OUTPUT_COLLECTION_DIR = 
-//			"results/editorials-xmi/";
-//			"results/temp-test/";
-			"results/evaluation-xmi/";
-//			"results/10articlesForAnnotators-xmi/";
-//			"results/debates-xmi/";
-//			"results/isocolon-evaluation-xmi/isocolon-xmi-files/";
-//			"results/isocolon-evaluation-xmi/all-but-isocolon-xmi/";
+			"output/";
 
     
 	private static final List<String> documents2Ignore = Arrays.asList(new String[]{
@@ -97,8 +85,7 @@ public class PlainText2XMIConverter {
      * The maximum number of files to be processed
      */
     private static final long maxFilesToProcess = 
-    		1;
-//    		Long.MAX_VALUE;
+    		Long.MAX_VALUE;
     
     /**
      * The type of the input folder hierarchical organization
