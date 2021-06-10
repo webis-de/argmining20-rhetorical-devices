@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<typeSystemDescription xmlns="http://uima.apache.org/resourceSpecifier">
+    <name>RhetoricTypeSystem</name>
+    <description>Type system for all annotation types specific to the mining and analysis of rhetorical devices.</description>
+    <version>1.0</version>
+    <vendor/>
+  <types>
+    <typeDescription>
+      <name>type.rhetoricDetection.RhetoricalDevice</name>
+      <description>Type system for all the implemented rhetorical devices.</description>
+      <supertypeName>uima.tcas.Annotation</supertypeName>
+      <features>
+        <featureDescription>
+          <name>deviceType</name>
+          <description>Type of rhetorical device.</description>
+          <rangeTypeName>uima.cas.String</rangeTypeName>
+        </featureDescription>
+      <featureDescription>
+          <name>category</name>
+          <description/>
+          <rangeTypeName>uima.cas.String</rangeTypeName>
+        </featureDescription>
+      </features>
+    </typeDescription>
+    <typeDescription>
+      <name>type.rhetoricDetection.RhetoricConstituents</name>
+      <description>Type system for helping constituents/units in detection of rhetorical devices.</description>
+      <supertypeName>uima.tcas.Annotation</supertypeName>
+      <features>
+        <featureDescription>
+          <name>unitType</name>
+          <description>Type of the rhetoric constituent.</description>
+          <rangeTypeName>uima.cas.String</rangeTypeName>
+        </featureDescription>
+      </features>
+    </typeDescription>
+    <typeDescription>
+      <name>type.rhetoricDetection.IfConditional</name>
+      <description>Type system for if-conditional sentences. It is used in detection if-conditionals of all types in the text. Separate type system is created because it has distinct features.</description>
+      <supertypeName>uima.tcas.Annotation</supertypeName>
+      <features>
+        <featureDescription>
+          <name>Pclause</name>
+          <description>Conditional(P) clause in a sentence (i.e. If P, then Q).</description>
+          <rangeTypeName>uima.cas.String</rangeTypeName>
+        </featureDescription>
+        <featureDescription>
+          <name>Qclause</name>
+          <description>Head(Q) clause in a sentence (If P, then Q).</description>
+          <rangeTypeName>uima.cas.String</rangeTypeName>
+        </featureDescription>
+        <featureDescription>
+          <name>Rclause</name>
+          <description>Remaining part of the conditional sentence after extracting the P and Q clauses.</description>
+          <rangeTypeName>uima.cas.String</rangeTypeName>
+        </featureDescription>
+        <featureDescription>
+          <name>matchId</name>
+          <description>The Id of the sentence.</description>
+          <rangeTypeName>uima.cas.Integer</rangeTypeName>
+        </featureDescription>
+      </features>
+    </typeDescription>
+    <typeDescription>
+      <name>type.rhetoricDetection.verbsPassiveVoice</name>
+      <description>A suplimentary type of verb annotations used inside Passive Voice detection Ruta rule. It is used as a separated type system because of restriction in the ruta rule.</description>
+      <supertypeName>uima.tcas.Annotation</supertypeName>
+    </typeDescription>
+    <typeDescription>
+      <name>type.rhetoricDetection.Pclause</name>
+      <description>The conditional clause of the If conditional sentence.</description>
+      <supertypeName>uima.tcas.Annotation</supertypeName>
+      <features>
+        <featureDescription>
+          <name>parent</name>
+          <description>Pointer to the If-conditional sentence.</description>
+          <rangeTypeName>uima.cas.Integer</rangeTypeName>
+        </featureDescription>
+      </features>
+    </typeDescription>
+    <typeDescription>
+      <name>type.rhetoricDetection.Qclause</name>
+      <description>The head clause of the If conditional sentence.</description>
+      <supertypeName>uima.tcas.Annotation</supertypeName>
+      <features>
+        <featureDescription>
+          <name>parent</name>
+          <description>Pointer to the If-conditional sentence.</description>
+          <rangeTypeName>uima.cas.Integer</rangeTypeName>
+        </featureDescription>
+      </features>
+    </typeDescription>
+    <typeDescription>
+      <name>type.rhetoricDetection.verbsEpizeugma</name>
+      <description>Type system for Epizeugma helping verbs used in Epizeugma Ruta Rule.</description>
+      <supertypeName>uima.tcas.Annotation</supertypeName>
+    </typeDescription>
+    <typeDescription>
+      <name>type.rhetoricDetection.zeugmaConstituent</name>
+      <description>Type system for zeugma constituents(subject-governor pairs).</description>
+      <supertypeName>uima.tcas.Annotation</supertypeName>
+    </typeDescription>
+  <typeDescription>
+      <name>type.rhetoricDetection.Noun</name>
+      <description>Annotation type for nouns and noun phrases as defined by PenTreebank.</description>
+      <supertypeName>uima.tcas.Annotation</supertypeName>
+    </typeDescription>
+  <typeDescription>
+      <name>type.rhetoricDetection.Verb</name>
+      <description>Annotation type for verbs  as defined by PenTreebank.</description>
+      <supertypeName>uima.tcas.Annotation</supertypeName>
+    </typeDescription>
+  <typeDescription>
+      <name>type.rhetoricDetection.Conj</name>
+      <description>Annotation type for conjunctions as defined by PenTreebank.</description>
+      <supertypeName>uima.tcas.Annotation</supertypeName>
+    </typeDescription>
+  <typeDescription>
+      <name>type.rhetoricDetection.Dependent</name>
+      <description>Annotation type for nominal and clausal subjects defined as dependents for a governor by Stanford Dependencies.</description>
+      <supertypeName>uima.tcas.Annotation</supertypeName>
+    </typeDescription>
+  </types>
+</typeSystemDescription>
